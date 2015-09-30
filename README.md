@@ -1,2 +1,2 @@
 # 4097-code
-the code for the robot
+This repo contains the code for the robot. If things go properly, it should run on the robot.
