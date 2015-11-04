@@ -38,6 +38,9 @@ public class basicDrive extends OpMode {
         motorR = hardwareMap.dcMotor.get("motorR"); //ditto right
         powerL = 0; // force motor power to 0
         powerR = 0; // ditto
+        // gamepad1.setJoystickDeadzone(0);
+        // above lies the joystick deadzone setup code.
+        // it's great, they did the work for me.
     }
 
     public void loop() {
@@ -50,7 +53,7 @@ public class basicDrive extends OpMode {
                 mode = 2;
             }
             else{
-                mode = 3;
+                mode = 0;
             }
         }
 
@@ -112,6 +115,22 @@ public class basicDrive extends OpMode {
             if (gamepad1.dpad_left) {
                 powerL = 0;
             }
+        }
+
+		/*  
+		 *  stick is measured from -1 to +1 on whichever axis is being manipulated.
+		 *  in our case, we're measuring either stick's y axis, they're referred to as
+		 *  "gamepad1.left_stick_y" and "gamepad1.right_stick_y" in the code below.
+		 *  +1 is the top of an axis (as far up as you can push it on the Y) and -1 is
+		 *  the bottom. for the x axis, the rightmost you can push it is +1, and left is
+		 *  -1. more on this -1 to +1 system can be found in various FTC docs available to
+		 *  you.
+		 */
+        if(mode == 2) { // analog mode -- this is where things stop working.
+            telemetry.addData("mode", "set to ANALOG");
+                // the above basically checks if the stick's moved from the middle
+                powerL = gamepad1.left_stick_y; // real complex. set the stick's position to the power level
+                powerR = gamepad1.right_stick_y;
         }
 
         if (powerR >= -1 && powerR <= 1) { // power check, set power for right
