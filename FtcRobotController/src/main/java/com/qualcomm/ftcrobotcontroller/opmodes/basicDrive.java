@@ -23,7 +23,7 @@ public class basicDrive extends OpMode {
     DcMotor motorR; //front-right drive motor
     double powerL; // motor power for motorL
     double powerR; // motor power for motorR
-    short mode = 0; // this is our mode
+    short mode = 2; // this is our mode
     // 0 is fine, 1 is coarse, 2 is analog on the thumbsticks
 
     /*
@@ -45,6 +45,9 @@ public class basicDrive extends OpMode {
 
     public void loop() {
         // setup for 3-mode system
+
+        //TODO: uncomment this if I actually want to use it again.
+        /*
         if(gamepad1.start){
             if(mode == 0){
                 mode = 1;
@@ -56,6 +59,7 @@ public class basicDrive extends OpMode {
                 mode = 0;
             }
         }
+        */
 
         /*
          * button-based control mapping
