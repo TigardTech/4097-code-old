@@ -1,9 +1,9 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-import com.qualcomm.ftccommon.DbgLog;
+import com.qualcomm.ftccommon.DbgLog; //TODO: investigate
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorController;
+import com.qualcomm.robotcore.hardware.DcMotor; //TODO: investigate
+import com.qualcomm.robotcore.hardware.DcMotorController; //TODO: ditto
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
@@ -396,7 +396,8 @@ public class PushBotHardware extends OpMode
         }
 
     } // run_using_left_drive_encoder
-
+    // TODO: v_motor_left_drive.setMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+    // see: motor.setMode
     //--------------------------------------------------------------------------
     //
     // run_using_right_drive_encoder
