@@ -396,8 +396,6 @@ public class PushBotHardware extends OpMode
         }
 
     } // run_using_left_drive_encoder
-    // TODO: v_motor_left_drive.setMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
-    // see: motor.setMode
     //--------------------------------------------------------------------------
     //
     // run_using_right_drive_encoder
@@ -406,6 +404,12 @@ public class PushBotHardware extends OpMode
      * Set the right drive wheel encoder to run, if the mode is appropriate.
      */
     public void run_using_right_drive_encoder ()
+
+    // 1. checks if right drive motor exists (not assigned to null)
+    // 2. interact with v_motor_right_drive via DcMotor.setMode
+    // 3. perform DcMotorController.RunMode.RUN_USING_ENCODERS on to it
+    //     note, RUN_USING_ENCODERS is documented under DcMotorController.RunMode
+    // 4. the motor should now be ready to run using encoders.
 
     {
         if (v_motor_right_drive != null)
@@ -424,6 +428,9 @@ public class PushBotHardware extends OpMode
     /**
      * Set both drive wheel encoders to run, if the mode is appropriate.
      */
+
+    // RED HERRING
+    // this function runs run_using_left/right_drive_encoder
     public void run_using_encoders ()
 
     {
