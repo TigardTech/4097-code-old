@@ -1,0 +1,171 @@
+--------- beginning of /dev/log/main
+10-06 19:02:10.912 D/ActivityThread(16782): handleBindApplication:com.qualcomm.ftcrobotcontroller
+10-06 19:02:10.912 D/ActivityThread(16782): setTargetHeapUtilization:0.75
+10-06 19:02:10.912 D/ActivityThread(16782): setTargetHeapMinFree:2097152
+10-06 19:02:11.012 V/RobotCore(16782): saving logcat to /storage/emulated/0/com.qualcomm.ftcrobotcontroller.logcat
+10-06 19:02:11.012 I/FIRST   (16782): Wifi Direct - disconnected
+10-06 19:02:11.062 I/FIRST   (16782): Starting FTC Controller Service
+10-06 19:02:11.062 I/FIRST   (16782): Android device is zte, N9130
+10-06 19:02:11.072 V/RobotCore(16782): There are 1 Wifi Direct Assistant Clients (+)
+10-06 19:02:11.072 V/RobotCore(16782): Enabling Wifi Direct Assistant
+10-06 19:02:11.132 I/Adreno-EGL(16782): <qeglDrvAPI_eglInitialize:410>: EGL 1.4 QUALCOMM build:  ()
+10-06 19:02:11.132 I/Adreno-EGL(16782): OpenGL ES Shader Compiler Version: E031.24.02.07
+10-06 19:02:11.132 I/Adreno-EGL(16782): Build Date: 10/29/14 Wed
+10-06 19:02:11.132 I/Adreno-EGL(16782): Local Branch: 
+10-06 19:02:11.132 I/Adreno-EGL(16782): Remote Branch: 
+10-06 19:02:11.132 I/Adreno-EGL(16782): Local Patches: 
+10-06 19:02:11.132 I/Adreno-EGL(16782): Reconstruct Branch: 
+10-06 19:02:11.172 D/OpenGLRenderer(16782): Enabling debug mode 0
+10-06 19:02:11.182 D/RobotCore(16782): Wifi Direct state - enabled: true
+10-06 19:02:11.182 D/RobotCore(16782): Wifi Direct connection changed - connected: false
+10-06 19:02:11.182 D/RobotCore(16782): Wifi Direct this device changed
+10-06 19:02:11.182 V/RobotCore(16782): Wifi Direct device information: N9130 aa:a6:68:a3:74:71
+10-06 19:02:11.182 I/FIRST   (16782): Bound to Ftc Controller Service
+10-06 19:02:11.182 I/FIRST   (16782): Wifi Direct - disconnected
+10-06 19:02:11.182 I/FIRST   (16782): Robot Status: null
+10-06 19:02:11.202 I/FIRST   (16782): Cannot open robot configuration file - /storage/emulated/0/FIRST/No current file!.xml
+10-06 19:02:11.402 D/RobotCore(16782): Wifi Direct created group
+10-06 19:02:11.402 W/RobotCore(16782): Wifi Direct failure while trying to discover peers - reason: BUSY
+10-06 19:02:11.402 E/FIRST   (16782): ### ERROR: Wifi Direct Error: BUSY
+10-06 19:02:11.412 D/RobotCore(16782): Wifi Direct this device changed
+10-06 19:02:11.412 V/RobotCore(16782): Wifi Direct device information: N9130 aa:a6:68:a3:74:71
+10-06 19:02:11.462 D/RobotCore(16782): Wifi Direct connection changed - connected: true
+10-06 19:02:11.492 D/RobotCore(16782): Group owners address: /192.168.49.1
+10-06 19:02:11.492 D/RobotCore(16782): Wifi Direct group formed, this device is the group owner (GO)
+10-06 19:02:11.492 I/FIRST   (16782): Wifi Direct - Group Owner
+10-06 19:02:11.492 D/RobotCore(16782): Wifi Direct stop discovering peers
+10-06 19:02:11.492 V/RobotCore(16782): Wifi Direct connection information available
+10-06 19:02:11.492 I/FIRST   (16782): Wifi Direct Passphrase: iZPg1tZd
+10-06 19:02:11.492 I/Timeline(16782): Timeline: Activity_idle id: android.os.BinderProxy@4195f2f0 time:430844945
+10-06 19:02:26.212 I/FIRST   (16782): Stopping FTC Controller Service
+10-06 19:02:26.212 V/RobotCore(16782): There are 0 Wifi Direct Assistant Clients (-)
+10-06 19:02:26.212 V/RobotCore(16782): Disabling Wifi Direct Assistant
+10-06 19:02:26.532 V/RobotCore(16782): saving logcat to /storage/emulated/0/com.qualcomm.ftcrobotcontroller.logcat
+10-06 19:02:26.582 I/FIRST   (16782): Wifi Direct - disconnected
+10-06 19:02:26.602 I/FIRST   (16782): Starting FTC Controller Service
+10-06 19:02:26.602 I/FIRST   (16782): Android device is zte, N9130
+10-06 19:02:26.602 V/RobotCore(16782): There are 1 Wifi Direct Assistant Clients (+)
+10-06 19:02:26.602 V/RobotCore(16782): Enabling Wifi Direct Assistant
+10-06 19:02:26.622 D/RobotCore(16782): Wifi Direct state - enabled: true
+10-06 19:02:26.632 D/RobotCore(16782): Wifi Direct connection changed - connected: true
+10-06 19:02:26.632 D/RobotCore(16782): Wifi Direct this device changed
+10-06 19:02:26.632 V/RobotCore(16782): Wifi Direct device information: N9130 aa:a6:68:a3:74:71
+10-06 19:02:26.632 D/RobotCore(16782): Wifi Direct cannot create group, does group already exist?
+10-06 19:02:26.632 I/FIRST   (16782): Bound to Ftc Controller Service
+10-06 19:02:26.632 I/FIRST   (16782): Wifi Direct - disconnected
+10-06 19:02:26.632 I/FIRST   (16782): Robot Status: null
+10-06 19:02:26.642 I/FIRST   (16782): Cannot open robot configuration file - /storage/emulated/0/FIRST/No current file!.xml
+10-06 19:02:26.642 D/RobotCore(16782): Group owners address: /192.168.49.1
+10-06 19:02:26.642 D/RobotCore(16782): Wifi Direct group formed, this device is the group owner (GO)
+10-06 19:02:26.642 I/FIRST   (16782): Wifi Direct - Group Owner
+10-06 19:02:26.642 D/RobotCore(16782): Wifi Direct stop discovering peers
+10-06 19:02:26.652 V/RobotCore(16782): Wifi Direct connection information available
+10-06 19:02:26.652 I/FIRST   (16782): Wifi Direct Passphrase: iZPg1tZd
+10-06 19:02:26.812 V/RobotCore(16782): Killing PID 16816
+10-06 19:02:26.862 I/Timeline(16782): Timeline: Activity_idle id: android.os.BinderProxy@4195f2f0 time:430860316
+--------- beginning of /dev/log/main
+10-06 19:02:10.912 D/ActivityThread(16782): handleBindApplication:com.qualcomm.ftcrobotcontroller
+10-06 19:02:10.912 D/ActivityThread(16782): setTargetHeapUtilization:0.75
+10-06 19:02:10.912 D/ActivityThread(16782): setTargetHeapMinFree:2097152
+10-06 19:02:11.012 V/RobotCore(16782): saving logcat to /storage/emulated/0/com.qualcomm.ftcrobotcontroller.logcat
+10-06 19:02:11.012 I/FIRST   (16782): Wifi Direct - disconnected
+10-06 19:02:11.062 I/FIRST   (16782): Starting FTC Controller Service
+10-06 19:02:11.062 I/FIRST   (16782): Android device is zte, N9130
+10-06 19:02:11.072 V/RobotCore(16782): There are 1 Wifi Direct Assistant Clients (+)
+10-06 19:02:11.072 V/RobotCore(16782): Enabling Wifi Direct Assistant
+10-06 19:02:11.132 I/Adreno-EGL(16782): <qeglDrvAPI_eglInitialize:410>: EGL 1.4 QUALCOMM build:  ()
+10-06 19:02:11.132 I/Adreno-EGL(16782): OpenGL ES Shader Compiler Version: E031.24.02.07
+10-06 19:02:11.132 I/Adreno-EGL(16782): Build Date: 10/29/14 Wed
+10-06 19:02:11.132 I/Adreno-EGL(16782): Local Branch: 
+10-06 19:02:11.132 I/Adreno-EGL(16782): Remote Branch: 
+10-06 19:02:11.132 I/Adreno-EGL(16782): Local Patches: 
+10-06 19:02:11.132 I/Adreno-EGL(16782): Reconstruct Branch: 
+10-06 19:02:11.172 D/OpenGLRenderer(16782): Enabling debug mode 0
+10-06 19:02:11.182 D/RobotCore(16782): Wifi Direct state - enabled: true
+10-06 19:02:11.182 D/RobotCore(16782): Wifi Direct connection changed - connected: false
+10-06 19:02:11.182 D/RobotCore(16782): Wifi Direct this device changed
+10-06 19:02:11.182 V/RobotCore(16782): Wifi Direct device information: N9130 aa:a6:68:a3:74:71
+10-06 19:02:11.182 I/FIRST   (16782): Bound to Ftc Controller Service
+10-06 19:02:11.182 I/FIRST   (16782): Wifi Direct - disconnected
+10-06 19:02:11.182 I/FIRST   (16782): Robot Status: null
+10-06 19:02:11.202 I/FIRST   (16782): Cannot open robot configuration file - /storage/emulated/0/FIRST/No current file!.xml
+10-06 19:02:11.402 D/RobotCore(16782): Wifi Direct created group
+10-06 19:02:11.402 W/RobotCore(16782): Wifi Direct failure while trying to discover peers - reason: BUSY
+10-06 19:02:11.402 E/FIRST   (16782): ### ERROR: Wifi Direct Error: BUSY
+10-06 19:02:11.412 D/RobotCore(16782): Wifi Direct this device changed
+10-06 19:02:11.412 V/RobotCore(16782): Wifi Direct device information: N9130 aa:a6:68:a3:74:71
+10-06 19:02:11.462 D/RobotCore(16782): Wifi Direct connection changed - connected: true
+10-06 19:02:11.492 D/RobotCore(16782): Group owners address: /192.168.49.1
+10-06 19:02:11.492 D/RobotCore(16782): Wifi Direct group formed, this device is the group owner (GO)
+10-06 19:02:11.492 I/FIRST   (16782): Wifi Direct - Group Owner
+10-06 19:02:11.492 D/RobotCore(16782): Wifi Direct stop discovering peers
+10-06 19:02:11.492 V/RobotCore(16782): Wifi Direct connection information available
+10-06 19:02:11.492 I/FIRST   (16782): Wifi Direct Passphrase: iZPg1tZd
+10-06 19:02:11.492 I/Timeline(16782): Timeline: Activity_idle id: android.os.BinderProxy@4195f2f0 time:430844945
+10-06 19:02:26.212 I/FIRST   (16782): Stopping FTC Controller Service
+10-06 19:02:26.212 V/RobotCore(16782): There are 0 Wifi Direct Assistant Clients (-)
+10-06 19:02:26.212 V/RobotCore(16782): Disabling Wifi Direct Assistant
+10-06 19:02:26.532 V/RobotCore(16782): saving logcat to /storage/emulated/0/com.qualcomm.ftcrobotcontroller.logcat
+10-06 19:02:26.582 I/FIRST   (16782): Wifi Direct - disconnected
+10-06 19:02:26.602 I/FIRST   (16782): Starting FTC Controller Service
+10-06 19:02:26.602 I/FIRST   (16782): Android device is zte, N9130
+10-06 19:02:26.602 V/RobotCore(16782): There are 1 Wifi Direct Assistant Clients (+)
+10-06 19:02:26.602 V/RobotCore(16782): Enabling Wifi Direct Assistant
+10-06 19:02:26.622 D/RobotCore(16782): Wifi Direct state - enabled: true
+10-06 19:02:26.632 D/RobotCore(16782): Wifi Direct connection changed - connected: true
+10-06 19:02:26.632 D/RobotCore(16782): Wifi Direct this device changed
+10-06 19:02:26.632 V/RobotCore(16782): Wifi Direct device information: N9130 aa:a6:68:a3:74:71
+10-06 19:02:26.632 D/RobotCore(16782): Wifi Direct cannot create group, does group already exist?
+10-06 19:02:26.632 I/FIRST   (16782): Bound to Ftc Controller Service
+10-06 19:02:26.632 I/FIRST   (16782): Wifi Direct - disconnected
+10-06 19:02:26.632 I/FIRST   (16782): Robot Status: null
+10-06 19:02:26.642 I/FIRST   (16782): Cannot open robot configuration file - /storage/emulated/0/FIRST/No current file!.xml
+10-06 19:02:26.642 D/RobotCore(16782): Group owners address: /192.168.49.1
+10-06 19:02:26.642 D/RobotCore(16782): Wifi Direct group formed, this device is the group owner (GO)
+10-06 19:02:26.642 I/FIRST   (16782): Wifi Direct - Group Owner
+10-06 19:02:26.642 D/RobotCore(16782): Wifi Direct stop discovering peers
+10-06 19:02:26.652 V/RobotCore(16782): Wifi Direct connection information available
+10-06 19:02:26.652 I/FIRST   (16782): Wifi Direct Passphrase: iZPg1tZd
+10-06 19:02:26.812 V/RobotCore(16782): Killing PID 16816
+10-06 19:02:26.862 I/Timeline(16782): Timeline: Activity_idle id: android.os.BinderProxy@4195f2f0 time:430860316
+10-06 19:02:27.212 V/RobotCore(16782): closing logcat file /storage/emulated/0/com.qualcomm.ftcrobotcontroller
+10-06 19:02:27.402 V/RobotCore(16782): Killing PID 16889
+--------- beginning of /dev/log/main
+10-08 19:22:39.444 D/dalvikvm( 5897): Late-enabling CheckJNI
+10-08 19:22:39.504 D/ActivityThread( 5897): handleBindApplication:com.qualcomm.ftcrobotcontroller
+10-08 19:22:39.504 D/ActivityThread( 5897): setTargetHeapUtilization:0.75
+10-08 19:22:39.504 D/ActivityThread( 5897): setTargetHeapMinFree:2097152
+10-08 19:22:39.564 V/RobotCore( 5897): saving logcat to /storage/emulated/0/com.qualcomm.ftcrobotcontroller.logcat
+10-08 19:22:39.624 I/FIRST   ( 5897): Wifi Direct - disconnected
+10-08 19:22:39.844 I/FIRST   ( 5897): Starting FTC Controller Service
+10-08 19:22:39.844 I/FIRST   ( 5897): Android device is zte, N9130
+10-08 19:22:39.854 V/RobotCore( 5897): There are 1 Wifi Direct Assistant Clients (+)
+10-08 19:22:39.854 V/RobotCore( 5897): Enabling Wifi Direct Assistant
+10-08 19:22:39.914 I/Adreno-EGL( 5897): <qeglDrvAPI_eglInitialize:410>: EGL 1.4 QUALCOMM build:  ()
+10-08 19:22:39.914 I/Adreno-EGL( 5897): OpenGL ES Shader Compiler Version: E031.24.02.07
+10-08 19:22:39.914 I/Adreno-EGL( 5897): Build Date: 10/29/14 Wed
+10-08 19:22:39.914 I/Adreno-EGL( 5897): Local Branch: 
+10-08 19:22:39.914 I/Adreno-EGL( 5897): Remote Branch: 
+10-08 19:22:39.914 I/Adreno-EGL( 5897): Local Patches: 
+10-08 19:22:39.914 I/Adreno-EGL( 5897): Reconstruct Branch: 
+10-08 19:22:39.964 D/OpenGLRenderer( 5897): Enabling debug mode 0
+10-08 19:22:39.964 D/RobotCore( 5897): Wifi Direct state - enabled: true
+10-08 19:22:39.974 D/RobotCore( 5897): Wifi Direct connection changed - connected: true
+10-08 19:22:39.974 D/RobotCore( 5897): Wifi Direct cannot create group, does group already exist?
+10-08 19:22:39.974 D/RobotCore( 5897): Wifi Direct this device changed
+10-08 19:22:39.974 V/RobotCore( 5897): Wifi Direct device information: N9130 aa:a6:68:a3:74:71
+10-08 19:22:39.974 I/FIRST   ( 5897): Bound to Ftc Controller Service
+10-08 19:22:39.974 I/FIRST   ( 5897): Wifi Direct - disconnected
+10-08 19:22:39.974 I/FIRST   ( 5897): Robot Status: null
+10-08 19:22:39.984 I/FIRST   ( 5897): Cannot open robot configuration file - /storage/emulated/0/FIRST/No current file!.xml
+10-08 19:22:40.184 D/RobotCore( 5897): Group owners address: /192.168.49.1
+10-08 19:22:40.184 D/RobotCore( 5897): Wifi Direct group formed, this device is a client
+10-08 19:22:40.184 E/FIRST   ( 5897): ### ERROR: Wifi Direct - connected as peer, was expecting Group Owner
+10-08 19:22:40.194 V/RobotCore( 5897): Wifi Direct connection information available
+10-08 19:22:40.194 I/FIRST   ( 5897): Wifi Direct Passphrase: 
+10-08 19:22:40.254 I/Timeline( 5897): Timeline: Activity_idle id: android.os.BinderProxy@4186e310 time:4285018
+10-08 19:22:55.154 I/FIRST   ( 5897): Stopping FTC Controller Service
+10-08 19:22:55.154 V/RobotCore( 5897): There are 0 Wifi Direct Assistant Clients (-)
+10-08 19:22:55.164 V/RobotCore( 5897): Disabling Wifi Direct Assistant
+10-08 19:22:56.154 V/RobotCore( 5897): closing logcat file /storage/emulated/0/com.qualcomm.ftcrobotcontroller
+10-08 19:22:56.364 V/RobotCore( 5897): Killing PID 5919

@@ -449,17 +449,15 @@ public class PushBotHardware extends OpMode
     /**
      * Set the left drive wheel encoder to run, if the mode is appropriate.
      */
-    public void run_without_left_drive_encoder ()
+
+    public void run_without_left_drive_encoder()
 
     {
         if (v_motor_left_drive != null)
         {
-            if (v_motor_left_drive.getMode () ==
-                DcMotorController.RunMode.RESET_ENCODERS)
+            if (v_motor_left_drive.getMode() == DcMotorController.RunMode.RESET_ENCODERS)
             {
-                v_motor_left_drive.setMode
-                    ( DcMotorController.RunMode.RUN_WITHOUT_ENCODERS
-                    );
+                v_motor_left_drive.setMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
             }
         }
 
