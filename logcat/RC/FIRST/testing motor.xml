@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Robot>
+    <MotorController name="Motor Controller " serialNumber="AL00VIME">
+        <Motor name="testMotor" port="1" />
+    </MotorController>
+</Robot>
