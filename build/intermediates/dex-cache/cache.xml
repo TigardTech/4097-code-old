@@ -2,46 +2,46 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Nyan\Desktop\git\4097-code\FtcRobotController\build\intermediates\exploded-aar\WirelessP2p-release\jars\classes.jar"
+        jar="C:\Users\Robotics\git\4097-code\FtcRobotController\build\intermediates\exploded-aar\WirelessP2p-release\jars\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="ebf8372b5bc9dc9f596ed438df36481099d51c41">
-        <dex dex="C:\Users\Nyan\Desktop\git\4097-code\FtcRobotController\build\intermediates\pre-dexed\debug\classes-b739dc0d21189091c3f535a5d7dbb3834eba34b9.jar" />
+        <dex dex="C:\Users\Robotics\git\4097-code\FtcRobotController\build\intermediates\pre-dexed\debug\classes-4076dd855bcf93af1308afef4f5d22b1ee2bd28d.jar" />
     </item>
     <item
-        jar="C:\Users\Nyan\Desktop\git\4097-code\FtcRobotController\build\intermediates\exploded-aar\Hardware-release\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="55ecd0b0517650a2cffd06137a40de8af3bbbde3">
-        <dex dex="C:\Users\Nyan\Desktop\git\4097-code\FtcRobotController\build\intermediates\pre-dexed\debug\classes-326c530708be4b4abf5d838e8cf531f674120122.jar" />
-    </item>
-    <item
-        jar="C:\Users\Nyan\Desktop\git\4097-code\FtcRobotController\build\intermediates\exploded-aar\Analytics-release\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="23c74caa2b901107adc4d0aec343c5b8e8be86fb">
-        <dex dex="C:\Users\Nyan\Desktop\git\4097-code\FtcRobotController\build\intermediates\pre-dexed\debug\classes-ddf20599f3517133b35f2c4cb481158968966be0.jar" />
-    </item>
-    <item
-        jar="C:\Users\Nyan\Desktop\git\4097-code\FtcRobotController\build\intermediates\exploded-aar\RobotCore-release\jars\classes.jar"
+        jar="C:\Users\Robotics\git\4097-code\FtcRobotController\build\intermediates\exploded-aar\RobotCore-release\jars\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2ec6f06847bccfe30fb8f8f75ce888721e4fd275">
-        <dex dex="C:\Users\Nyan\Desktop\git\4097-code\FtcRobotController\build\intermediates\pre-dexed\debug\classes-5fa0ac99d6f53344af61355e5b9355fb92c2f461.jar" />
+        <dex dex="C:\Users\Robotics\git\4097-code\FtcRobotController\build\intermediates\pre-dexed\debug\classes-d83a7478f7715904e7d9aaa811a76e5d2b747bd7.jar" />
     </item>
     <item
-        jar="C:\Users\Nyan\Desktop\git\4097-code\FtcRobotController\build\intermediates\exploded-aar\ModernRobotics-release\jars\classes.jar"
+        jar="C:\Users\Robotics\git\4097-code\FtcRobotController\build\intermediates\exploded-aar\ModernRobotics-release\jars\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="ad4adcdf8eb6ff2b3b4fe9f1d676f099db621d60">
-        <dex dex="C:\Users\Nyan\Desktop\git\4097-code\FtcRobotController\build\intermediates\pre-dexed\debug\classes-3b9c88820a50c6ef1dc232390168f12e5f54457d.jar" />
+        <dex dex="C:\Users\Robotics\git\4097-code\FtcRobotController\build\intermediates\pre-dexed\debug\classes-fbc2e27231831a6fd2a2056d1a2da5f308481ed6.jar" />
     </item>
     <item
-        jar="C:\Users\Nyan\Desktop\git\4097-code\FtcRobotController\build\intermediates\exploded-aar\FtcCommon-release\jars\classes.jar"
+        jar="C:\Users\Robotics\git\4097-code\FtcRobotController\build\intermediates\exploded-aar\Hardware-release\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="55ecd0b0517650a2cffd06137a40de8af3bbbde3">
+        <dex dex="C:\Users\Robotics\git\4097-code\FtcRobotController\build\intermediates\pre-dexed\debug\classes-8e9fb724b7e07144a95c21654964d5536d22d977.jar" />
+    </item>
+    <item
+        jar="C:\Users\Robotics\git\4097-code\FtcRobotController\build\intermediates\exploded-aar\Analytics-release\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="23c74caa2b901107adc4d0aec343c5b8e8be86fb">
+        <dex dex="C:\Users\Robotics\git\4097-code\FtcRobotController\build\intermediates\pre-dexed\debug\classes-13edb16a0be674f1dbf2baaba49dad0c42bdf9ba.jar" />
+    </item>
+    <item
+        jar="C:\Users\Robotics\git\4097-code\FtcRobotController\build\intermediates\exploded-aar\FtcCommon-release\jars\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="6da7d9bc8c9a82321450b6b4273d1746b6cade21">
-        <dex dex="C:\Users\Nyan\Desktop\git\4097-code\FtcRobotController\build\intermediates\pre-dexed\debug\classes-f6ac204671caa31812ddfbe9aa457909e2efba22.jar" />
+        <dex dex="C:\Users\Robotics\git\4097-code\FtcRobotController\build\intermediates\pre-dexed\debug\classes-12dc5bc5f06e4ec700cd0d22dc43b3c382579bc5.jar" />
     </item>
 
 </items>

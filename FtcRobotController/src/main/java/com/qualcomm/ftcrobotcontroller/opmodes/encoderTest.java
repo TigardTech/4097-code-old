@@ -11,18 +11,23 @@
  * go forward, go back, basically.
  */
 
+/* encoderTest - derives from basicDrive.java
+ *
+ * attempt to harness the true power contained within the encoder
+ * and we'll be able to see how far the robot's gone and all.
+ */
+
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.DcMotorController;
 
 
-public class basicDrive extends OpMode {
+public class encoderTest extends OpMode {
 
     DcMotor motorL; //front-left drive motor
     DcMotor motorR; //front-right drive motor
-    Servo arm; // front-facing arm servo.
     double powerL; // motor power for motorL
     double powerR; // motor power for motorR
     short mode = 2; // this is our mode
@@ -31,19 +36,19 @@ public class basicDrive extends OpMode {
     /*
     constructor
      */
-    public basicDrive() {
+    public encoderTest() {
 
     }
 
     public void init() { //init code for the robot controller
         motorL = hardwareMap.dcMotor.get("motorL"); //map left motor
         motorR = hardwareMap.dcMotor.get("motorR"); //ditto right
-        arm = hardwareMap.servo.get("arm");
         powerL = 0; // force motor power to 0
         powerR = 0; // ditto
         // gamepad1.setJoystickDeadzone(0);
         // above lies the joystick deadzone setup code.
         // it's great, they did the work for me.
+        motorL.setMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
     }
 
     public void loop() {
@@ -135,9 +140,9 @@ public class basicDrive extends OpMode {
 		 */
         if(mode == 2) { // analog mode -- this is where things stop working.
             telemetry.addData("mode", "set to ANALOG");
-                // the above basically checks if the stick's moved from the middle
-                powerL = gamepad1.left_stick_y; // real complex. set the stick's position to the power level
-                powerR = gamepad1.right_stick_y;
+            // the above basically checks if the stick's moved from the middle
+            powerL = gamepad1.left_stick_y; // real complex. set the stick's position to the power level
+            powerR = gamepad1.right_stick_y;
         }
 
         if (powerR >= -1 && powerR <= 1) { // power check, set power for right
@@ -146,20 +151,10 @@ public class basicDrive extends OpMode {
         if (powerL >= -1 && powerL <=1) { //ditto, left.
             motorL.setPower(powerL); // -1 to 1
         }
-        // servo controls
-        if(gamepad1.dpad_left){
-            arm.setPosition(0);
-        }
-        if(gamepad1.dpad_up){
-            arm.setPosition(0.5);
-        }
-        if(gamepad1.dpad_right){
-            arm.setPosition(1);
-        }
 
         telemetry.addData("left", powerL);
         telemetry.addData("right", powerR);
-        telemetry.addData("servo pos", arm.getPosition());
+        telemetry.addData("encoder", motorL.getCurrentPosition());
     }
 
 }
