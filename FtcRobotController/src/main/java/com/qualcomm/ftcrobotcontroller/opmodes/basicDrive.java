@@ -13,6 +13,7 @@
 
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.ftccommon.DbgLog;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -26,6 +27,9 @@ public class basicDrive extends OpMode {
     double powerL; // motor power for motorL
     double powerR; // motor power for motorR
     short mode = 2; // this is our mode
+    double servopos = 0;
+    double righttrigger = 0;
+    double lefttrigger = 0;
     // 0 is fine, 1 is coarse, 2 is analog on the thumbsticks
 
     /*
@@ -38,7 +42,7 @@ public class basicDrive extends OpMode {
     public void init() { //init code for the robot controller
         motorL = hardwareMap.dcMotor.get("motorL"); //map left motor
         motorR = hardwareMap.dcMotor.get("motorR"); //ditto right
-        arm = hardwareMap.servo.get("arm");
+        arm = hardwareMap.servo.get("arm");  //maps front servo to flippy arm
         powerL = 0; // force motor power to 0
         powerR = 0; // ditto
         // gamepad1.setJoystickDeadzone(0);
@@ -47,84 +51,7 @@ public class basicDrive extends OpMode {
     }
 
     public void loop() {
-        // setup for 3-mode system
-
-        //TODO: uncomment this if I actually want to use it again.
-        /*
-        if(gamepad1.start){
-            if(mode == 0){
-                mode = 1;
-            }
-            else if(mode == 1){
-                mode = 2;
-            }
-            else{
-                mode = 0;
-            }
-        }
-        */
-
-        /*
-         * button-based control mapping
-         * right motor controlled via buttons
-         * left controlled via d-pad
-         * RIGHT
-         * A -- inc. power
-         * B -- dec. power
-         * X -- full stop
-         * LEFT
-         * down -- inc
-         * right -- dec
-         * left -- stop
-         *
-         * fun stuff, amirite?
-         */
-
-        if(mode == 0) { // fine mode
-            telemetry.addData("mode", "set to FINE");
-            if (gamepad1.a) {
-                powerR += 0.1;
-            }
-            if (gamepad1.b) {
-                powerR -= 0.1;
-            }
-            if (gamepad1.x) {
-                powerR = 0;
-            }
-            if (gamepad1.dpad_down) {
-                powerL += 0.1;
-            }
-            if (gamepad1.dpad_right) {
-                powerL -= 0.1;
-            }
-            if (gamepad1.dpad_left) {
-                powerL = 0;
-            }
-        }
-
-        if(mode == 1) { // coarse mode
-            telemetry.addData("mode", "set to COARSE");
-            if (gamepad1.a) {
-                powerR = 1;
-            }
-            if (gamepad1.b) {
-                powerR = -1;
-            }
-            if (gamepad1.x) {
-                powerR = 0;
-            }
-            if (gamepad1.dpad_down) {
-                powerL = 1;
-            }
-            if (gamepad1.dpad_right) {
-                powerL -= -1;
-            }
-            if (gamepad1.dpad_left) {
-                powerL = 0;
-            }
-        }
-
-		/*  
+		/*
 		 *  stick is measured from -1 to +1 on whichever axis is being manipulated.
 		 *  in our case, we're measuring either stick's y axis, they're referred to as
 		 *  "gamepad1.left_stick_y" and "gamepad1.right_stick_y" in the code below.
@@ -133,12 +60,8 @@ public class basicDrive extends OpMode {
 		 *  -1. more on this -1 to +1 system can be found in various FTC docs available to
 		 *  you.
 		 */
-        if(mode == 2) { // analog mode -- this is where things stop working.
-            telemetry.addData("mode", "set to ANALOG");
-                // the above basically checks if the stick's moved from the middle
-                powerL = gamepad1.left_stick_y; // real complex. set the stick's position to the power level
-                powerR = gamepad1.right_stick_y;
-        }
+        powerL = gamepad1.left_stick_y; // real complex. set the stick's position to the power level
+        powerR = gamepad1.right_stick_y;
 
         if (powerR >= -1 && powerR <= 1) { // power check, set power for right
             motorR.setPower(powerR); // -1 to 1
@@ -147,15 +70,37 @@ public class basicDrive extends OpMode {
             motorL.setPower(powerL); // -1 to 1
         }
         // servo controls
-        if(gamepad1.dpad_left){
+        // triggers
+        if(gamepad1.left_trigger > 0.1 ) { // check if the trigger is active
+            lefttrigger = gamepad1.left_trigger / 2; //divide trigger's value by 2
+            servopos = lefttrigger + 0.5;
+            DbgLog.msg("left trigger " + servopos);
+        }
+        else if(gamepad1.right_trigger > 0.1) {
+            righttrigger = gamepad1.right_trigger / 2;
+            servopos = 0.5 - righttrigger;
+            DbgLog.msg("right trigger " + servopos);
+            DbgLog.msg("rt value " + gamepad1.right_trigger);
+        }
+        else {
+            servopos = 0.5;
+            DbgLog.msg("idle " + servopos);
+        }
+        if(servopos >= 0 && servopos <= 1){
+            arm.setPosition(servopos);
+        }
+        // d-pad
+        /*
+        if(gamepad1.dpad_right){
             arm.setPosition(0);
         }
         if(gamepad1.dpad_up){
             arm.setPosition(0.5);
         }
-        if(gamepad1.dpad_right){
+        if(gamepad1.dpad_left){
             arm.setPosition(1);
         }
+        */
 
         telemetry.addData("left", powerL);
         telemetry.addData("right", powerR);

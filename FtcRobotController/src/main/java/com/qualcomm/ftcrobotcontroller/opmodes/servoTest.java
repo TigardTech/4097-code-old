@@ -11,29 +11,34 @@ import com.qualcomm.robotcore.hardware.Servo;
 /**
  * servoTest:
  * make the servo spin-doo the way I want it to.
+ * NOTE:
+ * fixed for our normal config on 12-5-15
  */
 public class servoTest extends OpMode {
 
     float servo_pos;
-    Servo test; //flippy doo test thing
+    Servo arm; //flippy doo test thing
 
     public servoTest() {
     }
 
     public void init() {
-        test = hardwareMap.servo.get("test");
-    }
+        arm = hardwareMap.servo.get("arm");
+    } // map servo
 
     public void loop() {
         if(gamepad1.dpad_left) {
-            test.setPosition(0);
+            arm.setPosition(0);
         }
         if(gamepad1.dpad_up) {
-            test.setPosition(0.5);
+            arm.setPosition(0.5);
         }
         if(gamepad1.dpad_right) {
-            test.setPosition(1);
+            arm.setPosition(1);
         }
-        telemetry.addData("servo pos", test.getPosition());
+        if(gamepad1.right_trigger <= 1) {
+            arm.setPosition(gamepad1.right_trigger);
+        }
+        telemetry.addData("servo pos", arm.getPosition());
     }
 }
