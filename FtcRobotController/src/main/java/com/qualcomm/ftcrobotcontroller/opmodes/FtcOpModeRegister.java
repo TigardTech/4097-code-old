@@ -64,6 +64,7 @@ public class FtcOpModeRegister implements OpModeRegister {
     manager.register ("PushBotManual", PushBotManual.class);
     manager.register("basic drive mode", basicDrive.class);
     manager.register("spinny death mode", servoTest.class);
+    manager.register("dirty autonomous", dirtyAuto.class);
 
 
 

@@ -13,7 +13,7 @@
 
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-import com.qualcomm.ftccommon.DbgLog;
+//import com.qualcomm.ftccommon.DbgLog;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -23,14 +23,14 @@ public class basicDrive extends OpMode {
 
     DcMotor motorL; //front-left drive motor
     DcMotor motorR; //front-right drive motor
+    DcMotor winch; // arm winch
     Servo arm; // front-facing arm servo.
+    Servo pulley;
     double powerL; // motor power for motorL
     double powerR; // motor power for motorR
-    short mode = 2; // this is our mode
     double servopos = 0;
     double righttrigger = 0;
     double lefttrigger = 0;
-    // 0 is fine, 1 is coarse, 2 is analog on the thumbsticks
 
     /*
     constructor
@@ -42,6 +42,8 @@ public class basicDrive extends OpMode {
     public void init() { //init code for the robot controller
         motorL = hardwareMap.dcMotor.get("motorL"); //map left motor
         motorR = hardwareMap.dcMotor.get("motorR"); //ditto right
+        winch = hardwareMap.dcMotor.get("winch"); //map winch motor
+        pulley = hardwareMap.servo.get("pulley"); //map pulley cont. servo
         arm = hardwareMap.servo.get("arm");  //maps front servo to flippy arm
         powerL = 0; // force motor power to 0
         powerR = 0; // ditto
@@ -70,24 +72,24 @@ public class basicDrive extends OpMode {
             motorL.setPower(powerL); // -1 to 1
         }
         // servo controls
-        // triggers
+        // triggerd
         if(gamepad1.left_trigger > 0.1 ) { // check if the trigger is active
             lefttrigger = gamepad1.left_trigger / 2; //divide trigger's value by 2
-            servopos = lefttrigger + 0.5;
-            DbgLog.msg("left trigger " + servopos);
+            servopos = lefttrigger + 0.5; // the servo position is 0.5 + the value of the trigger
+            //DbgLog.msg("left trigger " + servopos);
         }
-        else if(gamepad1.right_trigger > 0.1) {
-            righttrigger = gamepad1.right_trigger / 2;
-            servopos = 0.5 - righttrigger;
-            DbgLog.msg("right trigger " + servopos);
-            DbgLog.msg("rt value " + gamepad1.right_trigger);
+        else if(gamepad1.right_trigger > 0.1) { //if the left trigger isn't active, check if the right is
+            righttrigger = gamepad1.right_trigger / 2; //divide by 2
+            servopos = 0.5 - righttrigger; // servopos = 0.5 - trigger value
+            //DbgLog.msg("right trigger " + servopos);
+            //DbgLog.msg("rt value " + gamepad1.right_trigger);
         }
-        else {
-            servopos = 0.5;
-            DbgLog.msg("idle " + servopos);
+        else { //if nothing's being pressed, idle in the center
+            servopos = 0.5; //center at 0.5
+            //DbgLog.msg("idle " + servopos);
         }
-        if(servopos >= 0 && servopos <= 1){
-            arm.setPosition(servopos);
+        if(servopos >= 0 && servopos <= 1){ //safety check, ensure we DO NOT break the boundary of our servo by limiting it to between 0 and 1
+            arm.setPosition(servopos); // actually set our robot's position
         }
         // d-pad
         /*
@@ -104,7 +106,7 @@ public class basicDrive extends OpMode {
 
         telemetry.addData("left", powerL);
         telemetry.addData("right", powerR);
-        telemetry.addData("servo pos", arm.getPosition());
+        //telemetry.addData("servo pos", arm.getPosition());
     }
 
 }
