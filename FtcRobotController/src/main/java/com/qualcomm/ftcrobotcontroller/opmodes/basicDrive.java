@@ -25,7 +25,6 @@ public class basicDrive extends OpMode {
     DcMotor motorR; //front-right drive motor
     DcMotor winch; // arm winch
     Servo arm; // front-facing arm servo.
-    Servo pulley;
     double powerL; // motor power for motorL
     double powerR; // motor power for motorR
     double servopos = 0;
@@ -43,7 +42,6 @@ public class basicDrive extends OpMode {
         motorL = hardwareMap.dcMotor.get("motorL"); //map left motor
         motorR = hardwareMap.dcMotor.get("motorR"); //ditto right
         winch = hardwareMap.dcMotor.get("winch"); //map winch motor
-        pulley = hardwareMap.servo.get("pulley"); //map pulley cont. servo
         arm = hardwareMap.servo.get("arm");  //maps front servo to flippy arm
         powerL = 0; // force motor power to 0
         powerR = 0; // ditto
@@ -62,6 +60,8 @@ public class basicDrive extends OpMode {
 		 *  -1. more on this -1 to +1 system can be found in various FTC docs available to
 		 *  you.
 		 */
+
+        //front motors
         powerL = gamepad1.left_stick_y; // real complex. set the stick's position to the power level
         powerR = gamepad1.right_stick_y;
 
@@ -71,8 +71,9 @@ public class basicDrive extends OpMode {
         if (powerL >= -1 && powerL <=1) { //ditto, left.
             motorL.setPower(powerL); // -1 to 1
         }
+
         // servo controls
-        // triggerd
+        // triggers
         if(gamepad1.left_trigger > 0.1 ) { // check if the trigger is active
             lefttrigger = gamepad1.left_trigger / 2; //divide trigger's value by 2
             servopos = lefttrigger + 0.5; // the servo position is 0.5 + the value of the trigger
@@ -91,19 +92,20 @@ public class basicDrive extends OpMode {
         if(servopos >= 0 && servopos <= 1){ //safety check, ensure we DO NOT break the boundary of our servo by limiting it to between 0 and 1
             arm.setPosition(servopos); // actually set our robot's position
         }
-        // d-pad
-        /*
-        if(gamepad1.dpad_right){
-            arm.setPosition(0);
-        }
-        if(gamepad1.dpad_up){
-            arm.setPosition(0.5);
-        }
-        if(gamepad1.dpad_left){
-            arm.setPosition(1);
-        }
-        */
 
+        //winch controls
+
+        if(gamepad1.a){
+            winch.setPower(1);
+        }
+        else if(gamepad1.b){
+            winch.setPower(-1);
+        }
+        else{
+            winch.setPower(0);
+        }
+
+        //output telemetry data
         telemetry.addData("left", powerL);
         telemetry.addData("right", powerR);
         //telemetry.addData("servo pos", arm.getPosition());
