@@ -23,13 +23,16 @@ public class basicDrive extends OpMode {
 
     DcMotor motorL; //front-left drive motor
     DcMotor motorR; //front-right drive motor
-    DcMotor winch; // arm winch
-    Servo arm; // front-facing arm servo.
+    DcMotor motor1; // arm winch
+    DcMotor motor2; // other motor on the arm mech
+    //Servo arm; // front-facing arm servo.
     double powerL; // motor power for motorL
     double powerR; // motor power for motorR
     double servopos = 0;
     double righttrigger = 0;
     double lefttrigger = 0;
+    double motor1pwr = 0;
+    double motor2pwr = 0;
 
     /*
     constructor
@@ -41,10 +44,12 @@ public class basicDrive extends OpMode {
     public void init() { //init code for the robot controller
         motorL = hardwareMap.dcMotor.get("motorL"); //map left motor
         motorR = hardwareMap.dcMotor.get("motorR"); //ditto right
-        winch = hardwareMap.dcMotor.get("winch"); //map winch motor
-        arm = hardwareMap.servo.get("arm");  //maps front servo to flippy arm
+        motor1 = hardwareMap.dcMotor.get("motor1"); //map winch motor
+        motor2 = hardwareMap.dcMotor.get("motor2"); // map another thing
         powerL = 0; // force motor power to 0
         powerR = 0; // ditto
+        motor2pwr = 0;
+        motor1pwr = 0;
         // gamepad1.setJoystickDeadzone(0);
         // above lies the joystick deadzone setup code.
         // it's great, they did the work for me.
@@ -64,6 +69,9 @@ public class basicDrive extends OpMode {
         //front motors
         powerL = gamepad1.left_stick_y; // real complex. set the stick's position to the power level
         powerR = gamepad1.right_stick_y;
+        motor1pwr = gamepad2.left_stick_y; // real complex. set the stick's position to the power level
+        motor2pwr = gamepad2.right_stick_y;
+
 
         if (powerR >= -1 && powerR <= 1) { // power check, set power for right
             motorR.setPower(powerR); // -1 to 1
@@ -71,9 +79,17 @@ public class basicDrive extends OpMode {
         if (powerL >= -1 && powerL <=1) { //ditto, left.
             motorL.setPower(powerL); // -1 to 1
         }
+        if (motor1pwr >= -1 && motor1pwr <= 1) { // power check, set power for right
+            motor1.setPower(motor1pwr); // -1 to 1
+        }
+        if (motor2pwr >= -1 && motor2pwr <= 1) {
+            motor2.setPower(motor2pwr); // spininign
+        }
 
         // servo controls
         // triggers
+
+        /*
         if(gamepad1.left_trigger > 0.1 ) { // check if the trigger is active
             lefttrigger = gamepad1.left_trigger / 2; //divide trigger's value by 2
             servopos = lefttrigger + 0.5; // the servo position is 0.5 + the value of the trigger
@@ -92,22 +108,15 @@ public class basicDrive extends OpMode {
         if(servopos >= 0 && servopos <= 1){ //safety check, ensure we DO NOT break the boundary of our servo by limiting it to between 0 and 1
             arm.setPosition(servopos); // actually set our robot's position
         }
+        */
 
         //winch controls
-
-        if(gamepad1.a){
-            winch.setPower(1);
-        }
-        else if(gamepad1.b){
-            winch.setPower(-1);
-        }
-        else{
-            winch.setPower(0);
-        }
 
         //output telemetry data
         telemetry.addData("left", powerL);
         telemetry.addData("right", powerR);
+        telemetry.addData("one", motor1pwr);
+        telemetry.addData("two", motor2pwr);
         //telemetry.addData("servo pos", arm.getPosition());
     }
 
