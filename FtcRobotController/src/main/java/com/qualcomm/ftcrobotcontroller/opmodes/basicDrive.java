@@ -26,6 +26,7 @@ public class basicDrive extends OpMode {
     DcMotor motor1; // arm winch
     DcMotor motor2; // other motor on the arm mech
     //Servo arm; // front-facing arm servo.
+    Servo rick; //this is rick the servo
     double powerL; // motor power for motorL
     double powerR; // motor power for motorR
     double servopos = 0;
@@ -46,6 +47,7 @@ public class basicDrive extends OpMode {
         motorR = hardwareMap.dcMotor.get("motorR"); //ditto right
         motor1 = hardwareMap.dcMotor.get("motor1"); //map winch motor
         motor2 = hardwareMap.dcMotor.get("motor2"); // map another thing
+        rick = hardwareMap.servo.get("rick"); // map rick
         powerL = 0; // force motor power to 0
         powerR = 0; // ditto
         motor2pwr = 0;
@@ -83,9 +85,20 @@ public class basicDrive extends OpMode {
             motor1.setPower(motor1pwr); // -1 to 1
         }
         if (motor2pwr >= -1 && motor2pwr <= 1) {
+            motor2pwr = motor2pwr / 2;
             motor2.setPower(motor2pwr); // spininign
         }
 
+        // rick controls
+        if(gamepad2.a) {// make the friendo go forward
+            rick.setPosition(1);
+        }
+        if(gamepad2.b) {
+            rick.setPosition(0.5);
+        }
+        if(gamepad2.y) {
+            rick.setPosition(0);
+        }
         // servo controls
         // triggers
 
@@ -109,14 +122,12 @@ public class basicDrive extends OpMode {
             arm.setPosition(servopos); // actually set our robot's position
         }
         */
-
-        //winch controls
-
         //output telemetry data
         telemetry.addData("left", powerL);
         telemetry.addData("right", powerR);
         telemetry.addData("one", motor1pwr);
         telemetry.addData("two", motor2pwr);
+        telemetry.addData("ricky servo", rick.getPosition());
         //telemetry.addData("servo pos", arm.getPosition());
     }
 

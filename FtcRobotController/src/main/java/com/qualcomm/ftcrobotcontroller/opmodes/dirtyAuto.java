@@ -3,6 +3,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.ftccommon.DbgLog;
 
 /**
  * dirty autonomous
@@ -13,8 +14,7 @@ public class dirtyAuto extends OpMode {
 
     DcMotor motorL;
     DcMotor motorR;
-    double powerL;
-    double powerR;
+
     Servo arm;
     public dirtyAuto() {
     }
@@ -22,21 +22,26 @@ public class dirtyAuto extends OpMode {
     public void init() {
         motorL = hardwareMap.dcMotor.get("motorL"); //map motors
         motorR = hardwareMap.dcMotor.get("motorR");
-        arm = hardwareMap.servo.get("arm");
+        DbgLog.msg("init phase");
     }
 
     public void loop() {
-        telemetry.addData("THIS MACHINE KILLS FASCISTS", "dirtyauto 0.1");
-
-        if(this.time <= 5){
-            motorL.setPower(-1);
-            motorR.setPower(-1);
-            arm.setPosition(0.5);
+        telemetry.addData("DEBRIS DUNKER", "dirtyauto 0.2");
+        telemetry.addData("current time", this.time);
+        if(this.time <= 8){
+            DbgLog.msg("entered phase one");
+            motorL.setPower(1);
+            motorR.setPower(1);
+            //arm.setPosition(0.5);
+            telemetry.addData("PHASE", "ONE, REVERSE");
         }
 
-        if(this.time > 5){
-            motorR.setPower(1);
-            arm.setPosition(0.5);
+        if(this.time > 8){
+            DbgLog.msg("entered phase 2");
+            motorR.setPower(0);
+            motorL.setPower(0);
+            //arm.setPosition(0.5);
+            telemetry.addData("PHASE", "TWO, LOCK STOP");
         }
     }
 }
