@@ -25,16 +25,16 @@ public class basicDrive extends OpMode {
     DcMotor motorR; //front-right drive motor
     DcMotor motor1; // arm winch
     DcMotor motor2; // other motor on the arm mech
-    //Servo arm; // front-facing arm servo.
-    Servo rick; //this is rick the servo
+    Servo armL; //left arm
+    Servo armR; //right arm
     double powerL; // motor power for motorL
     double powerR; // motor power for motorR
-    double servopos = 0;
-    double righttrigger = 0;
-    double lefttrigger = 0;
+    double lefttrigger;
+    double righttrigger;
     double motor1pwr = 0;
     double motor2pwr = 0;
-
+    double armLpos;
+    double armRpos;
     /*
     constructor
      */
@@ -47,7 +47,8 @@ public class basicDrive extends OpMode {
         motorR = hardwareMap.dcMotor.get("motorR"); //ditto right
         motor1 = hardwareMap.dcMotor.get("motor1"); //map winch motor
         motor2 = hardwareMap.dcMotor.get("motor2"); // map another thing
-        rick = hardwareMap.servo.get("rick"); // map rick
+        armL = hardwareMap.servo.get("armL");
+        armR = hardwareMap.servo.get("armR");
         powerL = 0; // force motor power to 0
         powerR = 0; // ditto
         motor2pwr = 0;
@@ -89,46 +90,37 @@ public class basicDrive extends OpMode {
             motor2.setPower(motor2pwr); // spininign
         }
 
-        // rick controls
-        if(gamepad2.a) {// make the friendo go forward
-            rick.setPosition(1);
-        }
-        if(gamepad2.b) {
-            rick.setPosition(0.5);
-        }
-        if(gamepad2.y) {
-            rick.setPosition(0);
-        }
         // servo controls
         // triggers
 
-        /*
         if(gamepad1.left_trigger > 0.1 ) { // check if the trigger is active
             lefttrigger = gamepad1.left_trigger / 2; //divide trigger's value by 2
-            servopos = lefttrigger + 0.5; // the servo position is 0.5 + the value of the trigger
+            armLpos = lefttrigger + 0.5; // the servo position is 0.5 + the value of the trigger
             //DbgLog.msg("left trigger " + servopos);
         }
         else if(gamepad1.right_trigger > 0.1) { //if the left trigger isn't active, check if the right is
             righttrigger = gamepad1.right_trigger / 2; //divide by 2
-            servopos = 0.5 - righttrigger; // servopos = 0.5 - trigger value
+            armRpos = 0.5 - righttrigger; // servopos = 0.5 - trigger value
             //DbgLog.msg("right trigger " + servopos);
             //DbgLog.msg("rt value " + gamepad1.right_trigger);
         }
         else { //if nothing's being pressed, idle in the center
-            servopos = 0.5; //center at 0.5
+            armLpos = 0.5; //center at 0.5
+            armRpos = 0.5;
             //DbgLog.msg("idle " + servopos);
         }
-        if(servopos >= 0 && servopos <= 1){ //safety check, ensure we DO NOT break the boundary of our servo by limiting it to between 0 and 1
-            arm.setPosition(servopos); // actually set our robot's position
+        if(armLpos >= 0 && armRpos <= 1 && armLpos <= 1 && armRpos >= 0){ //safety check, ensure we DO NOT break the boundary of our servo by limiting it to between 0 and 1
+            armL.setPosition(armRpos); // actually set our robot's position
+            armR.setPosition(armLpos);
         }
-        */
+
         //output telemetry data
-        telemetry.addData("left", powerL);
-        telemetry.addData("right", powerR);
-        telemetry.addData("one", motor1pwr);
-        telemetry.addData("two", motor2pwr);
-        telemetry.addData("ricky servo", rick.getPosition());
-        //telemetry.addData("servo pos", arm.getPosition());
+        telemetry.addData("left drive", powerL);
+        telemetry.addData("right drive", powerR);
+        telemetry.addData("hook one", motor1pwr);
+        telemetry.addData("hook two", motor2pwr);
+        telemetry.addData("right flap", armR.getPosition());
+        telemetry.addData("left flap", armL.getPosition());
     }
 
 }

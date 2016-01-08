@@ -37,7 +37,7 @@ public class dirtyAuto extends OpMode {
         }
 
         if(this.time > 8){
-            DbgLog.msg("entered phase 2");
+            DbgLog.msg("entered phase two");
             motorR.setPower(0);
             motorL.setPower(0);
             //arm.setPosition(0.5);
