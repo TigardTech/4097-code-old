@@ -105,8 +105,8 @@ public class basicDrive extends OpMode {
             //DbgLog.msg("rt value " + gamepad1.right_trigger);
         }
         else { //if nothing's being pressed, idle in the center
-            armLpos = 0.5; //center at 0.5
-            armRpos = 0.5;
+            armLpos = 0.2; //center at 0.5
+            armRpos = 0.8;
             //DbgLog.msg("idle " + servopos);
         }
         if(armLpos >= 0 && armRpos <= 1 && armLpos <= 1 && armRpos >= 0){ //safety check, ensure we DO NOT break the boundary of our servo by limiting it to between 0 and 1
