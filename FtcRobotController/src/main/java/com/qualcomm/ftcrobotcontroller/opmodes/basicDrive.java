@@ -27,14 +27,18 @@ public class basicDrive extends OpMode {
     DcMotor motor2; // other motor on the arm mech
     Servo armL; //left arm
     Servo armR; //right arm
+    Servo plat; // platform servo
     double powerL; // motor power for motorL
     double powerR; // motor power for motorR
     double lefttrigger;
     double righttrigger;
+    double lefttrigger2;
+    double righttrigger2;
     double motor1pwr = 0;
     double motor2pwr = 0;
     double armLpos;
     double armRpos;
+    double platpos;
     /*
     constructor
      */
@@ -53,6 +57,9 @@ public class basicDrive extends OpMode {
         powerR = 0; // ditto
         motor2pwr = 0;
         motor1pwr = 0;
+        platpos = 0;
+        lefttrigger2 = 0;
+        righttrigger2 = 0;
         // gamepad1.setJoystickDeadzone(0);
         // above lies the joystick deadzone setup code.
         // it's great, they did the work for me.
@@ -74,6 +81,16 @@ public class basicDrive extends OpMode {
         powerR = gamepad1.right_stick_y;
         motor1pwr = gamepad2.left_stick_y; // real complex. set the stick's position to the power level
         motor2pwr = gamepad2.right_stick_y;
+
+        if(gamepad2.a){
+            motor1pwr = 1;
+        }
+        if(gamepad2.b){
+            motor1pwr = -1;
+        }
+        if(gamepad2.y){
+            motor1pwr = 0;
+        }
 
 
         if (powerR >= -1 && powerR <= 1) { // power check, set power for right
@@ -114,6 +131,23 @@ public class basicDrive extends OpMode {
             armR.setPosition(armLpos);
         }
 
+        //arm controls for the rotating plate
+        if(gamepad2.left_trigger > 0) { // check if left trigger is active
+            lefttrigger2 = gamepad2.left_trigger / 4;
+            platpos = lefttrigger + 0.5;
+        }
+        else if(gamepad2.right_trigger > 0){
+            righttrigger2 = gamepad2.right_trigger / 4;
+            platpos = righttrigger2 - 0.5;
+        }
+        else if(gamepad2.right_bumper){
+            platpos = 0.5;
+        }
+
+
+        if(platpos >= 0 && platpos <= 1){
+            plat.setPosition(platpos);
+        }
         //output telemetry data
         telemetry.addData("left drive", powerL);
         telemetry.addData("right drive", powerR);
