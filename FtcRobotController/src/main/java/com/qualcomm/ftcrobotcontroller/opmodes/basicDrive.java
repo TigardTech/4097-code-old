@@ -53,6 +53,7 @@ public class basicDrive extends OpMode {
         motor2 = hardwareMap.dcMotor.get("motor2"); // map another thing
         armL = hardwareMap.servo.get("armL");
         armR = hardwareMap.servo.get("armR");
+        plat = hardwareMap.servo.get("plat");
         powerL = 0; // force motor power to 0
         powerR = 0; // ditto
         motor2pwr = 0;
@@ -132,6 +133,9 @@ public class basicDrive extends OpMode {
         }
 
         //arm controls for the rotating plate
+        // B R O K E N
+        // todo: unbreak
+        /*
         if(gamepad2.left_trigger > 0) { // check if left trigger is active
             lefttrigger2 = gamepad2.left_trigger / 4;
             platpos = lefttrigger + 0.5;
@@ -143,18 +147,13 @@ public class basicDrive extends OpMode {
         else if(gamepad2.right_bumper){
             platpos = 0.5;
         }
-
+        */
 
         if(platpos >= 0 && platpos <= 1){
             plat.setPosition(platpos);
         }
         //output telemetry data
-        telemetry.addData("left drive", powerL);
-        telemetry.addData("right drive", powerR);
-        telemetry.addData("hook one", motor1pwr);
-        telemetry.addData("hook two", motor2pwr);
-        telemetry.addData("right flap", armR.getPosition());
-        telemetry.addData("left flap", armL.getPosition());
+        telemetry.addData("servos make me cry", "cservos especially");
     }
 
 }
