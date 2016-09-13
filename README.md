@@ -1,3 +1,6 @@
+# This repo is RETIRED
+As of 9/13/2016 this repo has been retired.
+
 # ftc_app
 FTC Android Studio project to create FTC Robot Controller app.
 
